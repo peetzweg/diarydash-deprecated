@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 <head>
 <title>DiaryDash</title>
@@ -5,21 +7,32 @@
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:700|Merriweather' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/diarydash.css">
 
-<script src="bower_components/dat-gui/build/dat.gui.min.js"></script>
-<script src="bower_components/alertifyjs/dist/js/alertify.js"></script>
-<script src="bower_components/mousetrap/mousetrap.min.js"></script>
-<script src="bower_components/basil.js/build/basil.min.js"></script>
-<!--<script src="js/8bitdash.js"></script>-->
-
 </head>
 <body>
 <video autoplay loop poster="images/Relax1.gif" id="bgvid">
-		<source src="videos/water.mp4" type="video/mp4">
+		<source src="videos/Raindrops.mp4" type="video/mp4">
 </video>
-<div id="center">
-		<h2>Tuesday 25th of January 2015</h2>
-		</br>
+<div id='glass'></div>
+<div id='content'>
+	
+	<div id='text'>
+		<h2>Thursday 29th of January 2015</h2>
+		<br/>
 		<textarea autofocus spellcheck=false></textarea>
+	</div>
+	
 </div>
 </body>
+
+<script src="js/autosize-lite.js"></script>
+<script>
+	autosizeLite(document.querySelector('textarea'));
+
+	var ta = document.querySelector('textarea');
+	ta.addEventListener('autosize.resize', function(){
+		window.scrollTo(0,document.body.scrollHeight);
+	});
+
+</script>
+
 </html>
