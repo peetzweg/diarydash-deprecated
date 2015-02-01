@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>DiaryDash</title>
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather' rel='stylesheet' type='text/css'>
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/sweet-alert.min.js"></script>
+	<script src="js/autosize-lite.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/diarydash.css">
+	<link rel="stylesheet" type="text/css" href="css/mysweet.css">
+
+</head>
+<body>
+<video autoplay loop poster="" id="bgvid">
+		<source src="videos/007.mp4" type="video/mp4">
+</video>
+<div id='glass'></div>
+<div id='content'>
+	
+	<div id='content'>
+		<h2 id="date"></h2>
+		<textarea autofocus spellcheck=false></textarea>
+	</div>
+	
+</div>
+</body>
+
+
+<script>
+$(document).ready(function(){
+
+	var today = new Date();
+
+	/* Setting heading for todays entry */	
+	$('#date').text(today.toDateString());
+
+	/* Preparing key for local Storage */
+	var key = today.getFullYear().toString()+"-"+today.getMonth().toString()+"-"+today.getDate().toString();
+	console.log(key);
+
+
+	/* autoresize textarea */
+	autosizeLite(document.querySelector('textarea'));
+
+	/* add some event listeners to the textarea */
+	var ta = document.querySelector('textarea');
+	/* Scroll to the bottom of the page if the textarea is resized for better UX */
+	ta.addEventListener('autosize.resize', function(){
+		window.scrollTo(0,document.body.scrollHeight);
+	});
+	
+
+	/* restoring today's entry if present */
+	if(localStorage[key]) {
+		console.log("restoring from local storage");
+		var entry = localStorage[key];
+		/* Appending two new lines to continue writing immediatley */
+		ta.value = entry + "\n\n";
+
+		/* Trigger event to resize textarea */
+		ta.dispatchEvent(new Event('input'));
+
+		/* Scroll to bottom of the page to continue writing */
+		window.scrollTo(0,document.body.scrollHeight);
+	}
+
+
+	/* block browser hotkeys and provide my own actions */
+	$(window).bind('keydown', function(event) {
+		  if (event.ctrlKey || event.metaKey) {
+		      switch (String.fromCharCode(event.which).toLowerCase()) {
+					/* Save */
+		      case 's':
+							/* Prevent default behaviour */
+		          event.preventDefault();
+
+							/* Store value of the Textarea locally */
+							localStorage[key] = ta.value;
+
+							/* Show save-alert */
+		          swal({
+							title: "saved",
+							showConfirmButton: false,
+							confirmButtonColor: "#444",
+							type: "success",
+							timer: 1000 });
+		          break;
+		      }
+		  }
+	});
+});
+
+
+</script>
+
+</html>

@@ -43,8 +43,8 @@ window.autosizeLite = (function () {
 
 		function adjust() {
 			var startHeight = ta.style.height;
-			/*ta.style.height = 'auto';*/
-			var endHeight = ta.scrollHeight+heightOffset+heightOffset;
+			ta.style.height = 'auto';
+			var endHeight = ta.scrollHeight+heightOffset;
 
 			if (maxHeight !== false && maxHeight < endHeight) {
 				endHeight = maxHeight;
