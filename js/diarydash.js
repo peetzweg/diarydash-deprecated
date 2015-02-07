@@ -1,17 +1,18 @@
 $(document).ready(function(){
  
-	var today = new Date(2015,2,12);
+	var today = new Date();
 
 	/* choosing todays background */
-	var numImages = 9;
+	var numImages = 13;
 	var d = today.getDate();
 	while(d > numImages){
 		d -= numImages;
 	}
-	$("body").css("background-image", "url(images/00"+d+".jpg)");
+	$("body").css("background-image", "url(images/"+d+".jpg)");
 
 	/* setting heading for today's entry */	
-	$('#date').text(today.toDateString());
+	var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+	$('#date').text(today.toLocaleDateString('en-EN', options));
 
 	/* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
