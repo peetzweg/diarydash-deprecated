@@ -39,7 +39,7 @@ body {
 	background: #fff;
 }
 
-h1, h2, h3, h4, h5, h6, p, a, blockquote, code, em, img, small, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td, textarea {
+h1, h2, h3, textarea {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -70,45 +70,6 @@ p {
 	font-weight: 400;
 }
 
-.links {
-	text-align:center;
-}
-
-blockquote {
-  border-left: 10px solid #444;
-  margin: 1.5em 2em 1em 2em;
-  padding: 0.5em 10px;
-
-	/* Font */
-	color: inherit;
-	font-family: inherit;
-	font-style:italic;
-	line-height: 1.5;
-	font-size: 36px;
-	font-style:italic;
-	font-weight: 400;
-}
-
-blockquote:before {
-  color: #444;
-  content: open-quote;
-  font-size: 1.5em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-
-a {
-	color:inherit;
-	font-weight:700;
-	text-decoration:none;
-}
-
-a:hover {
-	text-decoration:underline;
-}
-
-
 textarea {
 	/* Size/Padding/Margin */
 	margin: 1.5em 0 4em 0;
@@ -132,8 +93,4 @@ textarea {
 	border: none; /* Remove border */
 	text-align:justify;
 	background:transparent;
-}
-
-video#bgvid {
-
 }
