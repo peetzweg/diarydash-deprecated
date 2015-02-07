@@ -3,6 +3,12 @@ body {
 	font-family: 'Merriweather', serif;
 	text-align:justify;
 	-webkit-font-smoothing: subpixel-antialiased;
+
+  background: no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+	background-size: cover;
 }
 
 #glass {
@@ -12,7 +18,7 @@ body {
 	bottom:0;
 	left:0;
 	right:0;
-	background-color: rgba(255, 255, 255, 0.85);
+	background-color: rgba(255, 255, 255, 0.60);
 	
 }
 
@@ -129,8 +135,5 @@ textarea {
 }
 
 video#bgvid {
-	position: fixed; right: 0; bottom: 0;
-	min-width: 100%; min-height: 100%;
-	width: auto; height: auto; z-index: -2;
-	background-size: cover;
+
 }

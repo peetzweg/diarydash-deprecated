@@ -18,9 +18,6 @@
 
 </head>
 <body>
-<video autoplay loop poster="" id="bgvid">
-		<source src="videos/001.mp4" type="video/mp4">
-</video>
 <div id='glass'></div>
 <div id='content'>
 	
@@ -36,7 +33,7 @@
 <script>
 $(document).ready(function(){
 
-	var today = new Date();
+	var today = new Date(2015,2,10);
 
 	/* Setting heading for todays entry */	
 	$('#date').text(today.toDateString());
@@ -45,6 +42,13 @@ $(document).ready(function(){
 	var key = today.getFullYear().toString()+"-"+today.getMonth().toString()+"-"+today.getDate().toString();
 	console.log(key);
 
+	var numImages = 9;
+	var d = today.getDate();
+	while(d > numImages){
+		d -= numImages;
+	}
+	console.log(d);
+	$("body").css("background-image", "url(images/00"+d+".jpg)");
 
 	/* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
