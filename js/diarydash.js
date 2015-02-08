@@ -12,7 +12,10 @@ $(document).ready(function(){
 
 	/* setting heading for today's entry */	
 	var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
-	$('#date').text(today.toLocaleDateString('en-EN', options));
+	var datestring = today.toLocaleDateString('en-EN', options);
+
+	$('#day').text(datestring.split(',')[0]);
+	$('#date').text(datestring.split(',')[1]);
 
 	/* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
