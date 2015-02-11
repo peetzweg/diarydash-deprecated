@@ -32,13 +32,17 @@ body {
 }
 
 #content {
-	max-width: 900px;
-  margin: 4em auto;
+	max-width: 960px;
+	margin: 2em auto;
 }
 
 #title-block {
+	/* center title block in mobile */
+	display: table;
+	margin: 0 auto;
+
+	max-width: 200px;
 	border-top: 5px solid #444;
-	padding: 0em 0em 0em 0em;
 	text-align: right;
 	line-height: 1.23;
 
@@ -51,13 +55,28 @@ body {
 
 #date {
 	font-size: 1.5em;
-	font-style:italic;
+	font-style: italic;
+}
+
+#writing-area {
+	padding: 2em 1em 0em 1em;
+}
+
+/* Desktop */
+@media screen and (min-width: 48em){
+	#content {
+		margin: 4em auto;
+	}
+	
+	#writing-area {
+		padding: 0 1em 0 1em;	
+	}
 }
 
 #user-text {
 	/* Size/Padding/Margin */
-	margin:0 0 0 0;
-	padding: 0em 1em 0em 1em;
+	margin:0 0em 0 0em;
+	padding: 0em 0em 0em 0em;
 	width: 100%;
 
 	/* Font */
