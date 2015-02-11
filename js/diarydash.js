@@ -1,5 +1,5 @@
 $(document).ready(function(){
- 
+	var weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Sunday'];
 	var today = new Date();
 
 	/* choosing todays background */
@@ -11,11 +11,10 @@ $(document).ready(function(){
 	$("body").css("background-image", "url(images/"+d+".jpg)");
 
 	/* setting heading for today's entry */	
-	var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
-	var datestring = today.toLocaleDateString('en-EN', options);
+	var datestring = today.getMonth() + 1 + '/' + today.getDate() + '/' + today.getFullYear();
 
-	$('#day').text(datestring.split(',')[0]);
-	$('#date').text(datestring.split(',')[1]);
+	$('#day').text(weekdays[today.getDay()]);
+	$('#date').text(datestring);
 
 	/* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
