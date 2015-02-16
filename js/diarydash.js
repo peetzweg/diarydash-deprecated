@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Sunday'];
+	var weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	var today = new Date();
 
 	/* choosing todays background */
