@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var today = new Date();
 
 	/* choosing todays background */
-	var numImages = 13;
+	var numImages = 31;
 	var d = today.getDate();
 	while(d > numImages){
 		d -= numImages;
