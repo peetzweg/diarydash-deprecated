@@ -1,12 +1,6 @@
 $(document).ready(function(){
-	var weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-	var today = new Date();
-
-	/* setting heading for today's entry */	
-	var datestring = today.getMonth() + 1 + '/' + today.getDate() + '/' + today.getFullYear();
-
-	$('#day').text(weekdays[today.getDay()]);
-	$('#date').text(datestring);
+	$('#day').text(moment().format('dddd'));
+	$('#date').text(moment().format('MM/DD/YY'));
 
 	/* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
@@ -20,10 +14,10 @@ $(document).ready(function(){
 	
 
 	/* preparing key for local Storage */
-	var key = today.getFullYear().toString()+"-"+today.getMonth().toString()+"-"+today.getDate().toString();
-	console.log(key);
+	var key = moment().format('DDMMYY');
+	console.log('LocalStorageKey: '+key);
 	
-/* restoring today's entry if present */
+	/* restoring today's entry if present */
 	if(localStorage[key]) {
 		console.log("restoring from local storage");
 		var entry = localStorage[key];
