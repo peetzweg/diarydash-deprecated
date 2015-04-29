@@ -14,7 +14,7 @@ html {
 }
 
 body {
-	background: no-repeat center center fixed; 
+	background: no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -34,6 +34,13 @@ body {
 #content {
 	max-width: 960px;
 	margin: 2em auto;
+}
+
+#footer {
+	text-align:center;
+	position:absolute;
+	bottom:0;
+	left:0;
 }
 
 #title-block {
@@ -60,6 +67,7 @@ body {
 
 #writing-area {
 	padding: 2em 1em 0em 1em;
+	background-color:green;
 }
 
 /* Desktop */
@@ -67,9 +75,9 @@ body {
 	#content {
 		margin: 4em auto;
 	}
-	
+
 	#writing-area {
-		padding: 0 1em 0 1em;	
+		padding: 0 1em 0 1em;
 	}
 }
 
@@ -87,7 +95,7 @@ body {
 	font-weight: 400;
 
 
-	/* Textarea specifics */	
+	/* Textarea specifics */
 	resize: none; /* Remove resize handle */
 	overflow: auto; /* Remove default scrollbars in Internet Explorer */
 	outline: none; /* Remove the blue glow */
