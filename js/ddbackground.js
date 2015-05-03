@@ -1,51 +1,53 @@
 $(document).ready(function(){
-	var today = new Date();
+	/* How many background images on the server */
+	var NoOfImages = 62;
+	var today = moment().format("l");
 
-	/* choosing todays background */
-	var resolutions = [1920, 1440, 1334, 1136];
+	/* check if bgNo is set */
+	if(localStorage["bgNo"] == undefined){
+		console.log("Seems to be the first visit, setting some config variables");
+		localStorage["bgNo"] = 1;
+		localStorage["lastVisit"] = today;
+	}
 
-	/* determine windows width */
-	var windowWidth = $(window).width();
+	/* retrieve old background number */
+	var bgNo = localStorage["bgNo"];
+	var lastVisit = localStorage["lastVisit"];
 
-	var resToUse = "";
-	if($.inArray(windowWidth, resolutions) != -1){
-		console.log("screen resolution matches available images");
-		var index = $.inArray(windowWidth, resolutions);
-		resToUse = "_"+resolutions[index];
-	}else{
-		console.log("screen resolution does not match any available image resolution");
-		console.log("searching for closest match...");
+	/* check if last visit was today */
+	if(lastVisit != today){
+		console.log("New Day, new Image!");
 
-		var index;
-		var best = Number.MAX_VALUE;
-		for (index = 0; index < resolutions.length; index++){
-			var res = resolutions[index];
-			var d = Math.abs(windowWidth - res);
-			if(d < best){
-				best = d;
-				resToUse = "_"+res;
-			}
+		bgNo++;
+		if(bgNo > NoOfImages){
+			bgNo = 1;
 		}
-		console.log("best resolution found: "+resToUse);
+
+		localStorage["bgNo"] = bgNo;
+		localStorage["lastVisit"] = today;
 	}
 
-	var numImages = 31;
-	var todaysImageNo = today.getDate();
-	while(todaysImageNo > numImages){
-		todaysImageNo -= numImages;
+	/* determine screen height */
+	var screenWidth = window.screen.height;
+	var res = "";
+	if(screenWidth > 1080){
+	} else if(screenWidth > 640){
+		res="_1080";
+	} else {
+		res="_640";
 	}
+
 
 	/* prepare Image String which is set as background */
 	/* add addtional zero at the beginning because the images have 3 digits */
 	var imgString = "0";
-
 	/* add addtional zero if chose image has only 1 digit */
-	if(todaysImageNo.toString().length == 1){
+	if(bgNo.toString().length == 1){
 		imgString += "0";
 	}
 
 	/* bring everything together, appending the resolution to use and jpg suffix */
-	imgString += todaysImageNo + resToUse + ".jpg"; 
+	imgString += bgNo + res + ".jpg";
 
 	/* finally set background image */
 	$("body").css("background-image", "url(images/"+imgString+")");
