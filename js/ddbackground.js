@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function setBackground(){
 	/* How many background images on the server */
 	var NoOfImages = 62;
 	var today = moment().format("l");
@@ -6,7 +6,7 @@ $(document).ready(function(){
 	/* check if bgNo is set */
 	if(localStorage["bgNo"] == undefined){
 		console.log("Seems to be the first visit, setting some config variables");
-		localStorage["bgNo"] = 1;
+		localStorage["bgNo"] = 18;
 		localStorage["lastVisit"] = today;
 	}
 
@@ -51,4 +51,4 @@ $(document).ready(function(){
 
 	/* finally set background image */
 	$("body").css("background-image", "url(images/"+imgString+")");
-});
+}
