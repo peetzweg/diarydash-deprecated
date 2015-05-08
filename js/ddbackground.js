@@ -1,6 +1,6 @@
 function setBackground(){
 	/* How many background images on the server */
-	var NoOfImages = 62;
+	var NoOfImages = 86;
 	var today = moment().format("l");
 
 	/* check if bgNo is set */
