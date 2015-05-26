@@ -46,6 +46,8 @@ function startDownload(){
 
   console.log(keys.length +" entrie(s) found!");
 
+  /* sorting keys */
+  keys.sort(compareKeys).reverse();
 
   var diary = "# Diary Dash *Diary*\n";
   for( var j = 0; j < keys.length; j++){
@@ -62,6 +64,37 @@ function startDownload(){
     base64 = window.btoa(diary);
     $('#Download').attr( 'href', 'data:application/octet-stream;base64,' + base64);
   }
+}
+
+/* compares dd keys, used for sort algorithm */
+function compareKeys(a, b) {
+  a = a.split("_")[1].split("-");
+  b = b.split("_")[1].split("-");
+
+
+  /* check year */
+  if (parseInt(a[0]) < parseInt(b[0])) {
+    return -1;
+  } else if (parseInt(a[0]) > parseInt(b[0])){
+    return 1;
+  } else {
+    /* check month */
+    if(parseInt(a[1]) < parseInt(b[1])){
+      return -1;
+    } else if (parseInt(a[1]) < parseInt(b[1])){
+      return 1;
+    } else {
+      /* check day */
+      if (parseInt(a[2]) < parseInt(b[2])){
+        return -1;
+      } else if (parseInt(a[2]) < parseInt(b[2])) {
+        return 1;
+      }
+    }
+  }
+
+  // a must be equal to b
+  return 0;
 }
 
 function howManyEntries(){
