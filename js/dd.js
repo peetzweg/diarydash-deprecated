@@ -19,10 +19,6 @@ function restoreDiary(key){
 function pimpTextArea(){
   /* get the textarea */
   var ta = document.querySelector('textarea');
-  var fontsize = window.getComputedStyle(ta, null).getPropertyValue('font-size');
-  console.log(fontsize);
-  ta.setAttribute('rows',(document.height-48-48-19)/36);
-  //$(window).resize(function () { ta.setAttribute('rows',(document.height/26)-7);});
 
   /* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));

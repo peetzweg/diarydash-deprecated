@@ -9,6 +9,8 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: 24px;
+	margin: 0;
+  padding: 0;
 }
 
 a {
@@ -36,6 +38,13 @@ a:hover {
 	font-weight: 400;
 	margin: 1em 0 0.5em 0;
 	font-size: 0.8em;
+	position:absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+.imprint {
+	text-align: right;
 }
 
 .right {
@@ -89,7 +98,7 @@ a:hover {
 	overflow: auto; /* Remove default scrollbars in Internet Explorer */
 	outline: none; /* Remove the blue glow */
 	border: none; /* Remove border */
-	background: transparent;
+	background: white;
 
 	text-align: justify;
 	white-space: pre-wrap;
