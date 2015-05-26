@@ -4,7 +4,7 @@ function restoreDiary(key){
 
     var entry = localStorage.getItem(key);
     /* appending two new lines to continue writing immediatley */
-    $('#user-text').val(entry + "\n\n");
+    $('#entry').val(entry + "\n\n");
 
     /* trigger event to resize textarea */
     var ta = document.querySelector('textarea');
@@ -17,11 +17,17 @@ function restoreDiary(key){
 }
 
 function pimpTextArea(){
+  /* get the textarea */
+  var ta = document.querySelector('textarea');
+  var fontsize = window.getComputedStyle(ta, null).getPropertyValue('font-size');
+  console.log(fontsize);
+  ta.setAttribute('rows',(document.height-48-48-19)/36);
+  //$(window).resize(function () { ta.setAttribute('rows',(document.height/26)-7);});
+
   /* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
 
 	/* add some event listeners to the textarea */
-	var ta = document.querySelector('textarea');
 	/* scroll to the bottom of the page if the textarea is resized for better UX */
 	ta.addEventListener('autosize.resize', function(){
 		window.scrollTo(0, document.body.scrollHeight);
@@ -97,10 +103,10 @@ function DiaryDash( jQuery ) {
     var key = "dd_"+today;
     restoreDiary(key);
 
-    /* Automatically Save users-text if changed */
+    /* Automatically Save entry if changed */
     var today = moment().format('L');
-    $('#user-text').bind('input propertychange', function(){
-      localStorage.setItem(key, $('#user-text').val());
+    $('#entry').bind('input propertychange', function(){
+      localStorage.setItem(key, $('#entry').val());
       updateNoOfEntries();
     });
 }

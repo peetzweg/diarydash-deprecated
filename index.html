@@ -1,45 +1,65 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>*Diary Dash</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Fonts -->
-<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Font -->
+	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<!-- CSS -->
-  <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.5.0/base-min.css&pure/0.5.0/grids-min.css&pure/0.5.0/grids-responsive-min.css">
-
 	<link rel="stylesheet" href="css/diarydash.css">
 
 	<!-- JavaScript -->
+	<script src="js/skel.min.js"></script>
+	<script>
+			skel.init({
+				grid: {
+					gutters: ['1em', 0]
+				},
+				containers: 1140,
+				breakpoints: {
+					medium: {
+						media: '(min-width: 769px) and (max-width: 1140px)',
+						containers: '90%'
+					},
+					small: {
+						media: '(max-width: 768px)',
+						containers: '95%'
+					},
+				}
+			});
+	</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/ddbackground.js"></script>
 
 	<script src="vendor/momentjs/moment.js"></script>
 	<script src="js/autosize-lite.js"></script>
 	<script src="js/dd.js"></script>
-
-
 </head>
 <body>
 	<div id="glass"></div>
 
-	<div id="content">
-		<div class="pure-g">
-				<div class="pure-u-1 pure-u-md-5-24" id="title-block">
-					<div class="pure-u-1" id="day"></div>
-					<div class="pure-u-1" id="date"></div>
-				</div>
+	<div class='container'>
+		<div class='row'>
+			<div class='2u 3u(medium) 4u(small) -4u(small) title'>
+				<div class='heading' id="day"></div>
+				<div class='subheading' id="date"></div>
+			</div>
 
-				<div class="pure-u-1 pure-u-md-18-24" id="writing-area">
-					<textarea autofocus spellcheck=false id="user-text"></textarea>
-				</div>
+			<div class='10u 9u(medium) 12u(small) content'>
+				<textarea autofocus spellcheck=false rows="4" id="entry"></textarea>
+			</div>
 		</div>
+		<div class='row' id="footer">
+			<div class='4u -4u'><a id="Download" download='Diary.md' href="#"></a></div>
+			<div class='2u -2u right'><a id="Info" href="#">info</a></div>
 
-		<div class="pure-u-1" id="footer">
-			<a id="Download" href="#"></a>
-		</div> <!-- #footer -->
-	</div> <!-- #content -->
+		</div>
+	</div>
 </body>
 </html>

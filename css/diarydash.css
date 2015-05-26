@@ -1,24 +1,14 @@
-html, button, input, select, textarea,
-.pure-g [class *= "pure-u"] {
-	font-family: 'Libre Baskerville', serif;
-	font-size: 1em;
-	color: #444;
-	text-rendering: optimizeLegibility;
-}
-
-html {
-	height: 100%;
-	display: block;
-	-webkit-font-smoothing: subpixel-antialiased;
-
-}
-
 body {
 	background: no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	font-family: 'Libre Baskerville', serif;
+	color: #444;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-size: 24px;
 }
 
 a {
@@ -28,81 +18,70 @@ a {
 
 a:hover {
 	text-decoration: underline;
-
 }
 
 #glass {
-	z-index:-1;
+	z-index: -1;
 	position: fixed;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	background-color: rgba(255, 255, 255, 0.60);
 }
 
-#content {
-	max-width: 960px;
-	margin: 2em auto;
-}
-
 #footer {
-	text-align:center;
-	position:absolute;
+	text-align: center;
+	font-style: italic;
 	font-weight: 400;
-	font-style:italic;
-	bottom:0.5em;
-	left:0;
+	margin: 1em 0 0.5em 0;
+	font-size: 0.8em;
 }
 
-#title-block {
-	/* center title block in mobile */
-	display: table;
-	margin: 0 auto;
-
-	border-top: 5px solid #444;
-	max-width: 200px;
+.right {
 	text-align: right;
-	line-height: 1.23;
 }
 
-#day {
-	font-size: 2em;
+.heading {
+	font-size: 1.5em;
 	font-weight: 700;
 }
 
-#date {
-	font-size: 1.5em;
+.subheading {
+	font-size: 1em;
 	font-style: italic;
+	font-weight: 400;
+
+}
+.container {
+	/* margin whole page from the top */
+	margin: 2em 0 0 0;
 }
 
-#writing-area {
-	padding: 2em 1em 0em 1em;
+.title {
+	text-align: right;
+	border-top: 5px solid #444;
+	line-height: 1.23;
+
+	/* add margin at the bottom for mobile stack */
+	margin: 0 0 1em 0;
+}
+
+.content {
 	background-color: transparent;
 }
 
-/* Desktop */
-@media screen and (min-width: 48em){
-	#content {
-		margin: 4em auto;
-	}
-
-	#writing-area {
-		padding: 0 1em 0 1em;
-	}
-}
-
-#user-text {
+#entry {
 	/* Size/Padding/Margin */
-	margin:0 0em 0 0em;
-	padding: 0em 0em 0em 0em;
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
 	width: 100%;
 
 	/* Font */
 	color: inherit;
 	font-family: inherit;
-	line-height: 1.23;
-	font-size: 1.5em;
+	line-height: 1.5;
+	font-size: 1em;
 	font-weight: 400;
 
 	/* Textarea specifics */
@@ -110,15 +89,19 @@ a:hover {
 	overflow: auto; /* Remove default scrollbars in Internet Explorer */
 	outline: none; /* Remove the blue glow */
 	border: none; /* Remove border */
-	text-align: left;
 	background: transparent;
+
+	text-align: justify;
+	white-space: pre-wrap;
 }
 
 
 /* Highlightning with cusor */
 ::selection {
-	background: #fff;
+	background: #444;
+	color: #fff
 }
 ::-moz-selection {
-	background: #fff;
+	background: #444;
+	color: #fff
 }
