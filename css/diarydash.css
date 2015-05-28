@@ -32,19 +32,22 @@ a:hover {
 	background-color: rgba(255, 255, 255, 0.60);
 }
 
+
 #footer {
 	text-align: center;
 	font-style: italic;
 	font-weight: 400;
-	margin: 1em 0 0.5em 0;
-	font-size: 0.8em;
-	position:absolute;
-	width: 100%;
-	bottom: 0;
+	border-top: solid 5px;
 }
 
-.imprint {
+#imprint {
 	text-align: right;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 0.8em;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 .right {
@@ -52,12 +55,12 @@ a:hover {
 }
 
 .heading {
-	font-size: 1.5em;
+	font-size: 1.33em;
 	font-weight: 700;
 }
 
 .subheading {
-	font-size: 1em;
+	font-size: 1.1em;
 	font-style: italic;
 	font-weight: 400;
 
@@ -74,6 +77,7 @@ a:hover {
 
 	/* add margin at the bottom for mobile stack */
 	margin: 0 0 1em 0;
+	padding: 0 0 0 0;
 }
 
 .content {
@@ -98,7 +102,7 @@ a:hover {
 	overflow: auto; /* Remove default scrollbars in Internet Explorer */
 	outline: none; /* Remove the blue glow */
 	border: none; /* Remove border */
-	background: white;
+	background: transparent;
 
 	text-align: justify;
 	white-space: pre-wrap;

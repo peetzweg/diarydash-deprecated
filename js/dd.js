@@ -62,7 +62,7 @@ function startDownload(){
     }
 
     base64 = window.btoa(diary);
-    $('#Download').attr( 'href', 'data:application/octet-stream;base64,' + base64);
+    $('#PageNumber').attr( 'href', 'data:application/octet-stream;base64,' + base64);
   }
 }
 
@@ -108,13 +108,7 @@ function howManyEntries(){
 }
 
 function updateNoOfEntries(){
-  if(howManyEntries() == 0){
-    $("#Download").text("no entries");
-  } else if(howManyEntries() == 1){
-    $("#Download").text("one entry");
-  } else {
-    $("#Download").text(howManyEntries() + " entries");
-  }
+  $("#PageNumber").text(howManyEntries());
 }
 
 function DiaryDash( jQuery ) {
