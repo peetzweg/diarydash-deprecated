@@ -9,8 +9,10 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: 24px;
-	margin: 0;
-  padding: 0;
+}
+
+p > a {
+	color: #007DB2;
 }
 
 a {
@@ -20,6 +22,8 @@ a {
 
 a:hover {
 	text-decoration: underline;
+	background: #444;
+	color: #fff
 }
 
 #glass {
@@ -37,7 +41,8 @@ a:hover {
 	text-align: center;
 	font-style: italic;
 	font-weight: 400;
-	border-top: solid 5px;
+	border-top: 5px solid #444;
+	padding:0;
 }
 
 #imprint {
@@ -46,7 +51,7 @@ a:hover {
 	font-weight: 400;
 	font-size: 0.8em;
 	width: 100%;
-	position: absolute;
+	position: sticky;
 	bottom: 0;
 }
 
@@ -74,10 +79,10 @@ a:hover {
 	text-align: right;
 	border-top: 5px solid #444;
 	line-height: 1.23;
-
+	padding: 0;
 	/* add margin at the bottom for mobile stack */
 	margin: 0 0 1em 0;
-	padding: 0 0 0 0;
+
 }
 
 .content {

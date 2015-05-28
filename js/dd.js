@@ -112,6 +112,24 @@ function updateNoOfEntries(){
 }
 
 function DiaryDash( jQuery ) {
+
+  skel.init({
+    grid: {
+      gutters: ['1em', 0]
+    },
+    containers: 1140,
+    breakpoints: {
+      medium: {
+        media: '(min-width: 769px) and (max-width: 1140px)',
+        containers: '90%'
+      },
+      small: {
+        media: '(max-width: 768px)',
+        containers: '95%'
+      },
+    }
+  });
+
     // Code to run when the document is ready.
     setBackground();
 
@@ -120,7 +138,7 @@ function DiaryDash( jQuery ) {
     pimpTextArea();
 
     updateNoOfEntries();
-    $("#Download").click(startDownload);
+    $("#PageNumber").click(startDownload);
 
     var today = moment().format('YYYY-MM-DD');
     var key = "dd_"+today;
