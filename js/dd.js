@@ -62,7 +62,7 @@ function startDownload(){
     }
 
     base64 = window.btoa(diary);
-    $('#PageNumber').attr( 'href', 'data:application/octet-stream;base64,' + base64);
+    $('#DownloadButton').attr( 'href', 'data:application/octet-stream;base64,' + base64);
   }
 }
 
@@ -108,28 +108,16 @@ function howManyEntries(){
 }
 
 function updateNoOfEntries(){
-  $("#PageNumber").text(howManyEntries());
+  if(howManyEntries() == 0){
+      $("#PageNumber").text("no entries");
+  } else if(howManyEntries() == 1){
+      $("#PageNumber").text("one entry");
+  } else {
+    $("#PageNumber").text(howManyEntries() + " entries");
+  }
 }
 
 function DiaryDash( jQuery ) {
-
-  skel.init({
-    grid: {
-      gutters: ['1em', 0]
-    },
-    containers: 1140,
-    breakpoints: {
-      medium: {
-        media: '(min-width: 769px) and (max-width: 1140px)',
-        containers: '90%'
-      },
-      small: {
-        media: '(max-width: 768px)',
-        containers: '95%'
-      },
-    }
-  });
-
     // Code to run when the document is ready.
     setBackground();
 
@@ -138,7 +126,9 @@ function DiaryDash( jQuery ) {
     pimpTextArea();
 
     updateNoOfEntries();
-    $("#PageNumber").click(startDownload);
+
+    /* add download function to DownloadButton */
+    $("#DownloadButton").click(startDownload);
 
     var today = moment().format('YYYY-MM-DD');
     var key = "dd_"+today;

@@ -1,28 +1,52 @@
 body {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	min-height: 100vh;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+
 	background: no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	font-family: 'Libre Baskerville', serif;
-	color: #444;
+	color: #424242;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: 24px;
 }
 
-p > a {
-	color: #007DB2;
+main {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+
+	margin: 2em 0 0 0;
+}
+
+
+
+p {
+	margin: 0 0 0 0;
+	line-height: 1.23;
+	text-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 }
 
 a {
 	color: inherit;
-	text-decoration: none;
+	font-style: italic;
+	text-decoration: underline;
 }
 
 a:hover {
-	text-decoration: underline;
-	background: #444;
+	background: #424242;
 	color: #fff
 }
 
@@ -37,29 +61,16 @@ a:hover {
 }
 
 
-#footer {
+.imprint {
 	text-align: center;
 	font-style: italic;
 	font-weight: 400;
-	border-top: 5px solid #444;
-	padding:0;
-}
-
-#imprint {
-	text-align: right;
-	font-style: italic;
-	font-weight: 400;
 	font-size: 0.8em;
-	width: 100%;
-	position: sticky;
-	bottom: 0;
-}
-
-.right {
-	text-align: right;
 }
 
 .heading {
+	border-top: 5px solid #424242;
+	padding:0 0 0 1em;
 	font-size: 1.33em;
 	font-weight: 700;
 }
@@ -70,14 +81,9 @@ a:hover {
 	font-weight: 400;
 
 }
-.container {
-	/* margin whole page from the top */
-	margin: 2em 0 0 0;
-}
 
 .title {
 	text-align: right;
-	border-top: 5px solid #444;
 	line-height: 1.23;
 	padding: 0;
 	/* add margin at the bottom for mobile stack */
@@ -87,6 +93,7 @@ a:hover {
 
 .content {
 	background-color: transparent;
+	padding:0 0 0 0;
 }
 
 #entry {
@@ -98,7 +105,7 @@ a:hover {
 	/* Font */
 	color: inherit;
 	font-family: inherit;
-	line-height: 1.5;
+	line-height: 1.23;
 	font-size: 1em;
 	font-weight: 400;
 
@@ -116,10 +123,10 @@ a:hover {
 
 /* Highlightning with cusor */
 ::selection {
-	background: #444;
+	background: #424242;
 	color: #fff
 }
 ::-moz-selection {
-	background: #444;
+	background: #424242;
 	color: #fff
 }
