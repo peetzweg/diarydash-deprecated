@@ -4,7 +4,7 @@ function restoreDiary(key){
 
     var entry = localStorage.getItem(key);
     /* appending two new lines to continue writing immediatley */
-    $('#user-text').val(entry + "\n\n");
+    $('#entry').val(entry + "\n\n");
 
     /* trigger event to resize textarea */
     var ta = document.querySelector('textarea');
@@ -17,11 +17,13 @@ function restoreDiary(key){
 }
 
 function pimpTextArea(){
+  /* get the textarea */
+  var ta = document.querySelector('textarea');
+
   /* autoresize textarea */
 	autosizeLite(document.querySelector('textarea'));
 
 	/* add some event listeners to the textarea */
-	var ta = document.querySelector('textarea');
 	/* scroll to the bottom of the page if the textarea is resized for better UX */
 	ta.addEventListener('autosize.resize', function(){
 		window.scrollTo(0, document.body.scrollHeight);
@@ -44,6 +46,8 @@ function startDownload(){
 
   console.log(keys.length +" entrie(s) found!");
 
+  /* sorting keys */
+  keys.sort(compareKeys).reverse();
 
   var diary = "# Diary Dash *Diary*\n";
   for( var j = 0; j < keys.length; j++){
@@ -58,8 +62,39 @@ function startDownload(){
     }
 
     base64 = window.btoa(diary);
-    $('#Download').attr( 'href', 'data:application/octet-stream;base64,' + base64);
+    $('#DownloadButton').attr( 'href', 'data:application/octet-stream;base64,' + base64);
   }
+}
+
+/* compares dd keys, used for sort algorithm */
+function compareKeys(a, b) {
+  a = a.split("_")[1].split("-");
+  b = b.split("_")[1].split("-");
+
+
+  /* check year */
+  if (parseInt(a[0]) < parseInt(b[0])) {
+    return -1;
+  } else if (parseInt(a[0]) > parseInt(b[0])){
+    return 1;
+  } else {
+    /* check month */
+    if(parseInt(a[1]) < parseInt(b[1])){
+      return -1;
+    } else if (parseInt(a[1]) < parseInt(b[1])){
+      return 1;
+    } else {
+      /* check day */
+      if (parseInt(a[2]) < parseInt(b[2])){
+        return -1;
+      } else if (parseInt(a[2]) < parseInt(b[2])) {
+        return 1;
+      }
+    }
+  }
+
+  // a must be equal to b
+  return 0;
 }
 
 function howManyEntries(){
@@ -74,11 +109,11 @@ function howManyEntries(){
 
 function updateNoOfEntries(){
   if(howManyEntries() == 0){
-    $("#Download").text("no entries");
+      $("#PageNumber").text("no entries");
   } else if(howManyEntries() == 1){
-    $("#Download").text("one entry");
+      $("#PageNumber").text("one entry");
   } else {
-    $("#Download").text(howManyEntries() + " entries");
+    $("#PageNumber").text(howManyEntries() + " entries");
   }
 }
 
@@ -91,16 +126,18 @@ function DiaryDash( jQuery ) {
     pimpTextArea();
 
     updateNoOfEntries();
-    $("#Download").click(startDownload);
+
+    /* add download function to DownloadButton */
+    $("#DownloadButton").click(startDownload);
 
     var today = moment().format('YYYY-MM-DD');
     var key = "dd_"+today;
     restoreDiary(key);
 
-    /* Automatically Save users-text if changed */
+    /* Automatically Save entry if changed */
     var today = moment().format('L');
-    $('#user-text').bind('input propertychange', function(){
-      localStorage.setItem(key, $('#user-text').val());
+    $('#entry').bind('input propertychange', function(){
+      localStorage.setItem(key, $('#entry').val());
       updateNoOfEntries();
     });
 }
