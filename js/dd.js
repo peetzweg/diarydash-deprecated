@@ -71,28 +71,36 @@ function compareKeys(a, b) {
   a = a.split("_")[1].split("-");
   b = b.split("_")[1].split("-");
 
+  var aYear = parseInt(a[0]);
+  var aMonth = parseInt(a[1]);
+  var aDay = parseInt(a[2]);
+
+  var bYear = parseInt(b[0]);
+  var bMonth = parseInt(b[1]);
+  var bDay = parseInt(b[2]);
 
   /* check year */
-  if (parseInt(a[0]) < parseInt(b[0])) {
-    return -1;
-  } else if (parseInt(a[0]) > parseInt(b[0])){
+  if (aYear > bYear) {
     return 1;
-  } else {
-    /* check month */
-    if(parseInt(a[1]) < parseInt(b[1])){
-      return -1;
-    } else if (parseInt(a[1]) < parseInt(b[1])){
+  } else if (aYear < bYear){
+    return -1;
+  }
+  /* check month */
+  else {
+    if(aMonth > bMonth){
       return 1;
-    } else {
-      /* check day */
-      if (parseInt(a[2]) < parseInt(b[2])){
-        return -1;
-      } else if (parseInt(a[2]) < parseInt(b[2])) {
+    } else if (aMonth < bMonth){
+      return -1;
+    }
+    /* check day */
+    else {
+      if (aDay > bDay){
         return 1;
+      } else if (aDay < bDay) {
+        return -1;
       }
     }
   }
-
   // a must be equal to b
   return 0;
 }
