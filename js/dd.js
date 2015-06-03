@@ -62,7 +62,9 @@ function startDownload(){
     }
 
     base64 = window.btoa(diary);
-    $('#DownloadButton').attr( 'href', 'data:application/octet-stream;base64,' + base64);
+    $('#DownloadButton').attr( 'href', 'data:text/plain;base64,' + base64);
+    $('#DownloadButton').attr( 'download', "diary_"+moment().format('YYYY-MM-DD')+".md");
+
   }
 }
 
