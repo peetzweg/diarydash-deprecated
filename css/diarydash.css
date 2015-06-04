@@ -19,7 +19,7 @@ body {
 	color: #424242;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
-	font-size: 24px;
+	font-size: 22px;
 }
 
 main {
@@ -29,13 +29,6 @@ main {
 	flex: 1 0 auto;
 
 	margin: 2em 0 0 0;
-}
-
-
-
-p {
-	margin: 0 0 0 0;
-	line-height: 1.23;
 }
 
 a {
@@ -91,11 +84,6 @@ a:hover {
 }
 
 .content {
-	background-color: transparent;
-	padding:0 0 0 0;
-}
-
-#entry {
 	/* Size/Padding/Margin */
 	margin:0 0 0 0;
 	padding: 0 0 0 0;
@@ -104,10 +92,17 @@ a:hover {
 	/* Font */
 	color: inherit;
 	font-family: inherit;
-	line-height: 1.23;
+	line-height: 1.42;
 	font-size: 1em;
 	font-weight: 400;
+	text-align: left;
+}
 
+.question {
+	margin-bottom: 3em;
+}
+
+#entry {
 	/* Textarea specifics */
 	resize: none; /* Remove resize handle */
 	overflow: auto; /* Remove default scrollbars in Internet Explorer */
@@ -115,7 +110,6 @@ a:hover {
 	border: none; /* Remove border */
 	background: transparent;
 
-	text-align: justify;
 	white-space: pre-wrap;
 }
 
