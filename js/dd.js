@@ -49,7 +49,7 @@ function startDownload(){
   /* sorting keys */
   keys.sort(compareKeys).reverse();
 
-  var diary = "# Diary Dash *Diary*\n";
+  var diary = "# *Diary Dash* Diary\n";
   for( var j = 0; j < keys.length; j++){
     var key = keys[j];
     console.log(key);
