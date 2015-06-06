@@ -61,7 +61,7 @@ a:hover {
 }
 
 .heading {
-	border-top: 5px solid #424242;
+	border-top: 4px solid #424242;
 	padding:0 0 0 1em;
 	font-size: 1.33em;
 	font-weight: 700;
@@ -76,7 +76,7 @@ a:hover {
 
 .title {
 	text-align: right;
-	line-height: 1.23;
+	line-height: 1.375;
 	padding: 0;
 	/* add margin at the bottom for mobile stack */
 	margin: 0 0 1em 0;
@@ -92,7 +92,7 @@ a:hover {
 	/* Font */
 	color: inherit;
 	font-family: inherit;
-	line-height: 1.42;
+	line-height: 1.375;
 	font-size: 1em;
 	font-weight: 400;
 	text-align: left;
