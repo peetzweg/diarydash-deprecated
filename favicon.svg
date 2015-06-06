@@ -17,8 +17,8 @@
    inkscape:version="0.91 r13725"
    sodipodi:docname="favicon.svg"
    inkscape:export-filename="/Users/mnml/git/diarydash/favicon.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
+   inkscape:export-xdpi="76.800003"
+   inkscape:export-ydpi="76.800003">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0416667"
-     inkscape:cx="27.560095"
-     inkscape:cy="98.870589"
+     inkscape:cx="100.32328"
+     inkscape:cy="70.852754"
      inkscape:document-units="px"
      inkscape:current-layer="g4143"
      showgrid="false"
@@ -66,6 +66,39 @@
        id="guide3756"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="150,0"
+       orientation="1,0"
+       id="guide4148"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid4150" />
+    <sodipodi:guide
+       position="0,100"
+       orientation="0,1"
+       id="guide4152"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="0,200"
+       orientation="0,1"
+       id="guide4154"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="0,50"
+       orientation="0,1"
+       id="guide4156"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="0,250"
+       orientation="0,1"
+       id="guide4158"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -87,30 +120,23 @@
     <g
        id="g4143"
        transform="translate(0,15.854561)">
-      <g
-         id="g4165"
-         transform="translate(2.6168823e-6,6.0000001)"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90">
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:203.35935974px;line-height:125%;font-family:'Libre Baskerville';-inkscape-font-specification:'Libre Baskerville, Bold';text-align:start;letter-spacing:-29.62532997px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#424242;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="109.96728"
-           y="983.89801"
-           id="text3344"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3346"
-             x="109.96728"
-             y="983.89801">D</tspan></text>
-        <rect
-           style="opacity:1;fill:#424242;fill-opacity:1"
-           id="rect4141"
-           width="275"
-           height="25.897034"
-           x="12.499996"
-           y="777.11719" />
-      </g>
+      <path
+         style="opacity:1;fill:#424242;fill-opacity:1"
+         d="m 25,736.50763 250,0 0,299.99997 -125,-50 -125,50 z"
+         id="rect4145"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccc" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3344"
+         y="968.88855"
+         x="57.023811"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:261.90475464px;line-height:125%;font-family:'Libre Baskerville';-inkscape-font-specification:'Libre Baskerville, Bold';text-align:start;letter-spacing:-38.15420914px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="968.88855"
+           x="57.023811"
+           id="tspan3346"
+           sodipodi:role="line">d</tspan></text>
     </g>
   </g>
 </svg>
