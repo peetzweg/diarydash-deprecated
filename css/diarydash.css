@@ -79,7 +79,7 @@ a:hover {
 	line-height: 1.375;
 	padding: 0;
 	/* add margin at the bottom for mobile stack */
-	margin: 0 0 1em 0;
+	margin: -5px 0 1em 0;
 
 }
 
@@ -109,7 +109,6 @@ a:hover {
 	outline: none; /* Remove the blue glow */
 	border: none; /* Remove border */
 	background: transparent;
-
 	white-space: pre-wrap;
 }
 
