@@ -32,7 +32,7 @@ function pimpTextArea(){
 
 function setHeading(){
   $('#day').text(moment().format('dddd'));
-  $('#date').text(moment().format('MM/DD/YY'));
+  $('#date').text(moment().format('MMMM Do YYYY'));
 }
 
 function startDownload(){

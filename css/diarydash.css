@@ -71,10 +71,10 @@ a:hover {
 }
 
 .subheading {
-	font-size: 1.2em;
+	font-size: 1em;
 	font-style: italic;
 	font-weight: 400;
-	margin-top: -8px;
+	margin-top: -2px;
 }
 
 .title {
