@@ -19,7 +19,7 @@ body {
 	color: #424242;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: subpixel-antialiased;
-	font-size: 22px;
+	font-size: 20px;
 }
 
 main {
@@ -52,6 +52,11 @@ a:hover {
 	background-color: rgba(255, 255, 255, 0.60);
 }
 
+.heading-content {
+	border-top: 4px solid #424242;
+	padding:0 0 0 1em;
+}
+
 
 .imprint {
 	text-align: center;
@@ -61,26 +66,23 @@ a:hover {
 }
 
 .heading {
-	border-top: 4px solid #424242;
-	padding:0 0 0 1em;
-	font-size: 1.33em;
+	font-size: 1.45em;
 	font-weight: 700;
 }
 
 .subheading {
-	font-size: 1.1em;
+	font-size: 1.2em;
 	font-style: italic;
 	font-weight: 400;
-
+	margin-top: -8px;
 }
 
 .title {
 	text-align: right;
-	line-height: 1.375;
 	padding: 0;
-	/* add margin at the bottom for mobile stack */
-	margin: -5px 0 1em 0;
-
+	/* add margin at the bottom for mobile stack, top offset for same baseline as text */
+	margin: -10px 0 1em 0;
+	line-height: 1.375;
 }
 
 .content {
@@ -88,7 +90,6 @@ a:hover {
 	margin:0 0 0 0;
 	padding: 0 0 0 0;
 	width: 100%;
-
 	/* Font */
 	color: inherit;
 	font-family: inherit;
@@ -110,6 +111,9 @@ a:hover {
 	border: none; /* Remove border */
 	background: transparent;
 	white-space: pre-wrap;
+
+	/* text areas naturally has 2px padding around it */
+	padding: 0 0 0 0;
 }
 
 
