@@ -27,7 +27,7 @@ main {
 	-ms-flex: 1 0 auto;
 	flex: 1 0 auto;
 
-	margin: 2em 0 0 0;
+	margin: 3em 0 0 0;
 }
 
 a {
@@ -55,12 +55,6 @@ a:hover {
 	margin-right: 0.5em;
 }
 
-.heading-content {
-	border-top: 4px solid #424242;
-	padding:0 0 0 1em;
-}
-
-
 .imprint {
 	text-align: center;
 	font-style: italic;
@@ -69,6 +63,7 @@ a:hover {
 }
 
 .heading {
+	border-top: 4px solid #424242;
 	font-size: 1.45em;
 	font-weight: 700;
 }
@@ -84,7 +79,7 @@ a:hover {
 	text-align: right;
 	padding: 0;
 	/* add margin at the bottom for mobile stack, top offset for same baseline as text */
-	margin: -10px 0 1em 0;
+	margin: -14px 0 1em 0;
 	line-height: 1.375;
 }
 
