@@ -12,7 +12,6 @@ function restoreDiary(key){
 
     /* scroll to bottom of the page to continue writing */
     window.scrollTo(0, document.body.scrollHeight);
-
   }
 }
 
@@ -131,25 +130,26 @@ function DiaryDash( jQuery ) {
     // Code to run when the document is ready.
     setBackground();
 
-    setHeading();
-
-    pimpTextArea();
-
-    updateNoOfEntries();
-
-    /* add download function to DownloadButton */
-    $("#DownloadButton").click(startDownload);
-
-    var today = moment().format('YYYY-MM-DD');
-    var key = "dd_"+today;
-    restoreDiary(key);
-
-    /* Automatically Save entry if changed */
-    var today = moment().format('L');
-    $('#entry').bind('input propertychange', function(){
-      localStorage.setItem(key, $('#entry').val());
+    /* if enrty element is available */
+    if($('#entry').length){
+      setHeading();
+      pimpTextArea();
       updateNoOfEntries();
-    });
+
+      /* add download function to DownloadButton */
+      $("#DownloadButton").click(startDownload);
+
+      var today = moment().format('YYYY-MM-DD');
+      var key = "dd_"+today;
+      restoreDiary(key);
+
+      /* Automatically Save entry if changed */
+      var today = moment().format('L');
+      $('#entry').bind('input propertychange', function(){
+        localStorage.setItem(key, $('#entry').val());
+        updateNoOfEntries();
+      });
+    }
 }
 
 $( document ).ready( DiaryDash );
