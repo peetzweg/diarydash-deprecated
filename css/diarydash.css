@@ -18,7 +18,6 @@ body {
 	font-family: 'Libre Baskerville', serif;
 	color: #424242;
 	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: subpixel-antialiased;
 	font-size: 20px;
 }
 
@@ -116,8 +115,10 @@ a:hover {
 	background: transparent;
 	white-space: pre-wrap;
 
-	/* text areas naturally has 2px padding around it */
+	/* remove default textarea padding */
 	padding: 0 0 0 0;
+
+	text-rendering: optimizeLegibility;
 }
 
 
