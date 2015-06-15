@@ -1,7 +1,6 @@
 #diarydash
 
-Write an daily dairy entry in your browser. diarydash.com is a website to write a daily diary entry.
-Everyday you are presented with a blank page with the day and date as heading and a new hand picked background image.
+Write your diary in your browser. Everyday you are presented with a blank page.
 Your entries are saved locally using HTML5 local storage. All entries can be accessed in a single markdown file using the controls at the bottom of the page.
 
 ![ScreenShot](screenshot.png)
