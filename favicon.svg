@@ -29,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0416667"
-     inkscape:cx="100.32328"
+     inkscape:cx="-55.676715"
      inkscape:cy="70.852754"
      inkscape:document-units="px"
      inkscape:current-layer="g4143"
@@ -120,21 +120,24 @@
     <g
        id="g4143"
        transform="translate(0,15.854561)">
-      <path
+      <rect
          style="opacity:1;fill:#424242;fill-opacity:1"
-         d="m 25,736.50763 250,0 0,299.99997 -125,-50 -125,50 z"
-         id="rect4145"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cccccc" />
+         id="rect4147"
+         width="300"
+         height="300"
+         x="0"
+         y="736.50763"
+         inkscape:export-xdpi="76.800003"
+         inkscape:export-ydpi="76.800003" />
       <text
          sodipodi:linespacing="125%"
          id="text3344"
-         y="968.88855"
-         x="57.023811"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:261.90475464px;line-height:125%;font-family:'Libre Baskerville';-inkscape-font-specification:'Libre Baskerville, Bold';text-align:start;letter-spacing:-38.15420914px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="1003.6505"
+         x="48.571426"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:285.71429443px;line-height:125%;font-family:'Libre Baskerville';-inkscape-font-specification:'Libre Baskerville, Bold';text-align:start;letter-spacing:-41.62277603px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           y="968.88855"
-           x="57.023811"
+           y="1003.6505"
+           x="48.571426"
            id="tspan3346"
            sodipodi:role="line">d</tspan></text>
     </g>
