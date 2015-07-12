@@ -51,6 +51,11 @@ a:hover {
 	background-color: rgba(255, 255, 255, 0.60);
 }
 
+.page {
+	background-color: rgba(255, 255, 255, 0.90);
+	padding: 0em 1em 2em 1em;
+}
+
 #PageNumber {
 	margin-right: 0.5em;
 }
@@ -72,21 +77,14 @@ a:hover {
 	font-size: 1em;
 	font-style: italic;
 	font-weight: 400;
-	margin-top: -2px;
 }
 
 .title {
 	text-align: right;
 	padding: 0;
-	/* add margin at the bottom for mobile stack, top offset for same baseline as text */
-	margin: -14px 0 1em 0;
 	line-height: 1.375;
-}
-
-@media (max-width: 992px) {
-	.title {
-		text-align: center;
-  }
+	margin-top: 2em;
+	margin-bottom: 1em;
 }
 
 .content {
