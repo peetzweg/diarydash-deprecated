@@ -4,7 +4,7 @@ function restoreDiary(key){
 
     var entry = localStorage.getItem(key);
     /* appending two new lines to continue writing immediatley */
-    $('#entry').val(entry + "\n\n");
+    $('#entry').val(entry);
 
     /* trigger event to resize textarea */
     var ta = document.querySelector('textarea');
