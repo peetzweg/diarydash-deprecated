@@ -42,29 +42,29 @@ function startDownload(){
       keys.push(localStorage.key(i));
     }
   }
-
   console.log(keys.length +" entrie(s) found!");
 
   /* sorting keys */
   keys.sort(compareKeys).reverse();
 
+  for(var i=0; i< keys.length; i++){
+    console.log(keys[i]);
+  }
+
   var diary = "# *Diary Dash* Diary\n";
   for( var j = 0; j < keys.length; j++){
     var key = keys[j];
-    console.log(key);
     var entry = localStorage.getItem(key);
-
-    if(entry.length > 0){
+    
+    if(entry != undefined){
       var date = moment(key.substring(3));
       diary += "\n## " + date.format("dddd - MM/DD/YY") + "\n";
       diary += "\n" + entry + "\n";
     }
-
-    base64 = window.btoa(diary);
-    $('#DownloadButton').attr( 'href', 'data:text/plain;base64,' + base64);
-    $('#DownloadButton').attr( 'download', "diary_"+moment().format('YYYY-MM-DD')+".md");
-
   }
+  base64 = window.btoa(diary);
+  $('#DownloadButton').attr( 'href', 'data:text/plain;base64,' + base64);
+  $('#DownloadButton').attr( 'download', "diary_"+moment().format('YYYY-MM-DD')+".md");
 }
 
 /* compares dd keys, used for sort algorithm */
