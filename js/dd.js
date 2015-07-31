@@ -34,7 +34,7 @@ function setHeading(){
   $('#date').text(moment().format('MMMM Do, YYYY'));
 }
 
-function startDownload(){
+function getEntryKeys(){
   var keys = [];
 
   for ( var i = 0; i < localStorage.length; i++) {
@@ -42,20 +42,19 @@ function startDownload(){
       keys.push(localStorage.key(i));
     }
   }
-  console.log(keys.length +" entrie(s) found!");
-
-  /* sorting keys */
   keys.sort(compareKeys).reverse();
 
-  for(var i=0; i< keys.length; i++){
-    console.log(keys[i]);
-  }
+  return keys
+}
+
+function startDownloadMD(){
+  var keys = getEntryKeys()
 
   var diary = "# *Diary Dash* Diary\n";
   for( var j = 0; j < keys.length; j++){
     var key = keys[j];
     var entry = localStorage.getItem(key);
-    
+
     if(entry != undefined){
       var date = moment(key.substring(3));
       diary += "\n## " + date.format("dddd - MM/DD/YY") + "\n";
@@ -65,6 +64,65 @@ function startDownload(){
   base64 = window.btoa(diary);
   $('#DownloadButton').attr( 'href', 'data:text/plain;base64,' + base64);
   $('#DownloadButton').attr( 'download', "diary_"+moment().format('YYYY-MM-DD')+".md");
+
+}
+
+function startDownloadPDF(){
+
+  var keys = getEntryKeys()
+
+  var diary = []
+  for( var k = 0; k < keys.length; k++){
+    var key = keys[k];
+    var entry = localStorage.getItem(key);
+
+    if(entry != undefined){
+      var date = moment(key.substring(3));
+      diary.push({ text: date.format("dddd"), style: 'heading'});
+      diary.push({ text: date.format("MMMM Do, YYYY"), style: 'subheading'});
+      diary.push({ text: entry, style: 'entry', pageBreak: 'after'});
+    }
+  }
+
+  // define new font, which is included in the vfs_fonts.js file
+  pdfMake.fonts = {
+    baskerville: {
+      normal: 'LibreBaskerville-Regular.ttf',
+      bold: 'LibreBaskerville-Bold.ttf',
+      italics: 'LibreBaskerville-Italic.ttf',
+      bolditalics: 'LibreBaskerville-Bold.ttf'
+
+    }
+  };
+
+  var docDefinition = {
+      pageSize: 'A5',
+      pageMargins: [ 20, 30, 20, 30 ], // in inch as far as I know
+      content: diary,
+      footer: function(currentPage, pageCount) {
+        return { text: currentPage.toString(), alignment: (currentPage % 2) ? 'left' : 'right', margin: [ 20, 10, 20, 30 ] };
+      },
+      defaultStyle: {
+          font: 'baskerville'
+      },
+      styles: {
+        heading: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center'
+        },
+        subheading: {
+          fontSize: 16,
+          italics: true,
+          alignment: 'center'
+        },
+        entry: {
+          fontSize: 14
+        }
+      }
+    };
+
+  pdfMake.createPdf(docDefinition).open();
 }
 
 /* compares dd keys, used for sort algorithm */
@@ -137,7 +195,7 @@ function DiaryDash( jQuery ) {
       updateNoOfEntries();
 
       /* add download function to DownloadButton */
-      $("#DownloadButton").click(startDownload);
+      $("#DownloadButton").click(startDownloadPDF);
 
       var today = moment().format('YYYY-MM-DD');
       var key = "dd_"+today;
