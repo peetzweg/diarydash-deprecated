@@ -67,6 +67,8 @@ function startDownloadMD(){
 
 }
 
+
+
 function startDownloadPDF(){
 
   var keys = getEntryKeys()
@@ -78,8 +80,27 @@ function startDownloadPDF(){
 
     if(entry != undefined){
       var date = moment(key.substring(3));
-      diary.push({ text: date.format("dddd"), style: 'heading'});
-      diary.push({ text: date.format("MMMM Do, YYYY"), style: 'subheading'});
+      diary.push(
+        {
+          style: 'headingTable',
+          table: {
+            headerRows: 1,
+        		body: [
+        		    [{ text: date.format("dddd"), style: 'heading' }],
+        		    [{ text: date.format("MMMM Do, YYYY"), style: 'subheading'}],
+        		]
+        	},
+        	layout: {
+        	  hLineWidth: function(i, node) {
+        	     return (i === 0) ? 2.5:0
+         		},
+        		vLineWidth: function(i, node) {
+        		   return 0
+        		}
+          },
+          margin: [ 0,0,0,12 ]
+        }
+      );
       diary.push({ text: entry, style: 'entry', pageBreak: 'after'});
     }
   }
@@ -97,7 +118,7 @@ function startDownloadPDF(){
 
   var docDefinition = {
       pageSize: 'A5',
-      pageMargins: [ 20, 30, 20, 30 ], // in inch as far as I know
+      pageMargins: [ 30, 35, 30, 35 ], // in inch as far as I know
       content: diary,
       footer: function(currentPage, pageCount) {
         return { text: currentPage.toString(), alignment: (currentPage % 2) ? 'left' : 'right', margin: [ 20, 10, 20, 30 ] };
@@ -106,23 +127,25 @@ function startDownloadPDF(){
           font: 'baskerville'
       },
       styles: {
+        headingTable: {
+          alignment: 'right'
+        },
         heading: {
           fontSize: 18,
           bold: true,
-          alignment: 'center'
         },
         subheading: {
-          fontSize: 16,
+          fontSize: 13,
           italics: true,
-          alignment: 'center'
         },
         entry: {
-          fontSize: 14
+          fontSize: 12,
+          alignment: 'justify'
         }
       }
     };
 
-  pdfMake.createPdf(docDefinition).open();
+  pdfMake.createPdf(docDefinition).open('test.pdf');
 }
 
 /* compares dd keys, used for sort algorithm */
