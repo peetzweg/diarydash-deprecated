@@ -199,11 +199,9 @@ function howManyEntries(){
 
 function updateNoOfEntries(){
   if(howManyEntries() == 0){
-      $("#PageNumber").text("no entries");
-  } else if(howManyEntries() == 1){
-      $("#PageNumber").text("one entry");
+      $("#PageNumber").text("0");
   } else {
-    $("#PageNumber").text(howManyEntries() + " entries");
+    $("#PageNumber").text(howManyEntries());
   }
 }
 
@@ -211,7 +209,7 @@ function DiaryDash( jQuery ) {
     // Code to run when the document is ready.
     setBackground();
 
-    /* if enrty element is available */
+    /* if entry element is available */
     if($('#entry').length){
       setHeading();
       pimpTextArea();

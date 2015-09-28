@@ -53,22 +53,20 @@ a:hover {
 
 .page {
 	background-color: rgba(255, 255, 255, 0.90);
-	padding: 0em 1em 2em 1em;
+	padding: 0em 1em 1em 1em;
 }
 
 #PageNumber {
-	margin-right: 0.5em;
 }
 
 .imprint {
-	text-align: center;
+	text-align: right;
 	font-style: italic;
 	font-weight: 400;
 	font-size: 0.8em;
 }
 
 .heading {
-	border-top: 4px solid #424242;
 	font-size: 1.45em;
 	font-weight: 700;
 }
@@ -80,7 +78,7 @@ a:hover {
 }
 
 .title {
-	text-align: right;
+	text-align: center;
 	padding: 0;
 	line-height: 1.375;
 	margin-top: 2em;
@@ -113,6 +111,7 @@ a:hover {
 	border: none; /* Remove border */
 	background: transparent;
 	white-space: pre-wrap;
+	text-indent: 75px;
 
 	/* remove default textarea padding */
 	padding: 0 0 0 0;
