@@ -103,6 +103,10 @@ a:hover {
 	margin-bottom: 3em;
 }
 
+.answer {
+	text-indent: 75px;
+}
+
 #entry {
 	/* Textarea specifics */
 	resize: none; /* Remove resize handle */
