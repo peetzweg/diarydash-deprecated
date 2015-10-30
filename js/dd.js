@@ -209,7 +209,6 @@ function updateFontSizes(){
   var containerWidth=$(".container").width()
   var fontSize = Math.max(Math.ceil((containerWidth/52)*1.2),15);
   fontSize = Math.min(fontSize, 22);
-  console.log(fontSize);
   $('body').css('font-size', fontSize );
 }
 
