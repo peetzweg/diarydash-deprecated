@@ -205,9 +205,21 @@ function updateNoOfEntries(){
   }
 }
 
+function updateFontSizes(){
+  var containerWidth=$(".container").width()
+  var fontSize = Math.max(Math.ceil((containerWidth/52)*1.2),15);
+  fontSize = Math.min(fontSize, 22);
+  console.log(fontSize);
+  $('body').css('font-size', fontSize );
+}
+
 function DiaryDash( jQuery ) {
     // Code to run when the document is ready.
     setBackground();
+
+    updateFontSizes()
+    $(window).resize(updateFontSizes);
+
 
     /* if entry element is available */
     if($('#entry').length){

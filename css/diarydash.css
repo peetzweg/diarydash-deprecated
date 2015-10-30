@@ -126,21 +126,3 @@ a:hover {
 	background: #424242;
 	color: #fff
 }
-
-/* small */
-@media (max-width: 600px) {
-	body{
-		font-size: 17px;
-	}
-	.heading {
-		font-size:1.38em;
-	}
-}
-
-/* medium */
-@media (max-width: 992px) {
-}
-
-/* medium */
-@media (min-width: 992px) {
-}
