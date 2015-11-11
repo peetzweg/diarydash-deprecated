@@ -208,8 +208,8 @@ function updateNoOfEntries(){
 function updateFontSizes(){
   var containerWidth=$(".container").width()
   var fontSize = Math.max(Math.ceil((containerWidth/52)*1.2),15);
-  fontSize = Math.min(fontSize, 22);
-  $('body').css('font-size', fontSize );
+  fontSize = Math.min(fontSize, 20);
+  $('.heading').css('font-size', $('#entry').css('font-size') * 3 );
 }
 
 function DiaryDash( jQuery ) {

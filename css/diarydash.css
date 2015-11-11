@@ -109,6 +109,7 @@ a:hover {
 	border: none; /* Remove border */
 	background: transparent;
 	white-space: pre-wrap;
+	line-height: 1.25em;
 	text-indent: 75px;
 
 	/* remove default textarea padding */

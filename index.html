@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>diarydash</title>
 	<meta name="description" content="diary">
 	<meta name="author" content="">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<!-- Font -->
 	<link href="http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
 
 	<!-- CSS -->
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
 	<link type="text/css" rel="stylesheet" href="css/diarydash.css">
 
 	<!-- favicon -->
 	<link rel="shortcut icon" href="favicon.ico?v=3">
 </head>
+
 <body>
 	<main class="valign-wrapper">
 		<div class="container">
 			<div class="row">
-				<div class="valign left col s12 m10 offset-m1 l8 offset-l2">
+				<div class="valign left col s12 m12 l8 offset-l2">
 					<div class="row z-depth-1 page">
 
 						<div class="title col s12">
-							<div class="heading"><span id="day" class="heading-content"></span></div>
-							<div class="subheading"><span id="date"></span></div>
+							<div class="heading">
+								<span id="day" class="heading-content"></span>
+							</div>
+							<div class="subheading">
+								<span id="date"></span>
+							</div>
 						</div>
 
 						<div class="content col s12">
-							<textarea autofocus spellcheck=false rows="10" id="entry"></textarea>
+							<textarea autofocus spellcheck=false rows="10" id="entry" class="flow-text justify"></textarea>
 						</div>
 						<div class="imprint right-align col s12">
 							<span id="PageNumber"></span>
@@ -44,12 +50,12 @@
 	</main>
 
 	<footer class="page-footer transparent">
-			<div class="row imprint">
-				<div class="col s12 center">
-					<a id="DownloadButton" class="btn-floating grey darken-3"><i class="mdi-file-file-download"></i></a>
-					<a class="btn-floating waves-effect waves-light grey darken-3" href="info.html"><i class="mdi-action-info-outline"></i></a>
-				</div>
+		<div class="row imprint">
+			<div class="col s12 center">
+				<a id="DownloadButton" class="btn-floating waves-effect grey darken-3"><i class="mdi-file-file-download"></i></a>
+				<a class="btn-floating waves-effect waves-light grey darken-3" href="info.html"><i class="mdi-action-info-outline"></i></a>
 			</div>
+		</div>
 	</footer>
 
 
@@ -66,15 +72,22 @@
 
 	<!-- Google Analytics -->
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-	  ga('create', 'UA-69496138-1', 'auto');
-	  ga('send', 'pageview');
-
+		ga('create', 'UA-69496138-1', 'auto');
+		ga('send', 'pageview');
 	</script>
 	<!-- End Google Analytics Code -->
 </body>
+
 </html>
