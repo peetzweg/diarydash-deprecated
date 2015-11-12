@@ -67,8 +67,6 @@ function startDownloadMD(){
 
 }
 
-
-
 function startDownloadPDF(){
 
   var keys = getEntryKeys()
@@ -207,9 +205,15 @@ function updateNoOfEntries(){
 
 function updateFontSizes(){
   var containerWidth=$(".container").width()
-  var fontSize = Math.max(Math.ceil((containerWidth/52)*1.2),15);
-  fontSize = Math.min(fontSize, 20);
-  $('.heading').css('font-size', $('#entry').css('font-size') * 3 );
+
+  var minFontSize = 18;
+  var maxFontSize = 22;
+
+  var fontSize = Math.max(Math.ceil((containerWidth/52)*1.2), minFontSize);
+  fontSize = Math.min(fontSize, maxFontSize);
+
+  // heading always bigger than text
+  $('body').css('font-size', fontSize );
 }
 
 function DiaryDash( jQuery ) {
