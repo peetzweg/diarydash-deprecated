@@ -213,7 +213,10 @@ function updateFontSizes(){
   fontSize = Math.min(fontSize, maxFontSize);
 
   // heading always bigger than text
-  $('body').css('font-size', fontSize );
+  $('body').css('font-size', fontSize +"px" );
+  $('#entry').css('text-indent', fontSize*3 + "px" );
+  $('.answer').css('text-indent', fontSize*3 + "px" );
+
 }
 
 function DiaryDash( jQuery ) {
