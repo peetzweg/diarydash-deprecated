@@ -9,7 +9,6 @@ function restoreDiary(key){
     /* trigger event to resize textarea */
     var ta = document.querySelector('textarea');
     ta.dispatchEvent(new Event('input'));
-
     /* scroll to bottom of the page to continue writing */
     window.scrollTo(0, document.body.scrollHeight);
   }
@@ -76,30 +75,11 @@ function startDownloadPDF(){
     var key = keys[k];
     var entry = localStorage.getItem(key);
 
-    if(entry != undefined){
+    if(entry != undefined && (entry.trim().length > 0)){
       var date = moment(key.substring(3));
-      diary.push(
-        {
-          style: 'headingTable',
-          table: {
-            headerRows: 1,
-        		body: [
-        		    [{ text: date.format("dddd"), style: 'heading' }],
-        		    [{ text: date.format("MMMM Do, YYYY"), style: 'subheading'}],
-        		]
-        	},
-        	layout: {
-        	  hLineWidth: function(i, node) {
-        	     return (i === 0) ? 2.5:0
-         		},
-        		vLineWidth: function(i, node) {
-        		   return 0
-        		}
-          },
-          margin: [ 0,0,0,12 ]
-        }
-      );
-      diary.push({ text: entry, style: 'entry', pageBreak: 'after'});
+      diary.push({ text: date.format("dddd"), style: 'heading' })
+      diary.push({ text: date.format("MMMM Do, YYYY"), style: 'subheading', margin: [ 0,0,0,6 ]} )
+      diary.push({ text: entry, style: 'entry', margin: [ 0, 0, 0, 36 ]});
     }
   }
 
@@ -116,25 +96,24 @@ function startDownloadPDF(){
 
   var docDefinition = {
       pageSize: 'A5',
-      pageMargins: [ 30, 35, 30, 35 ], // in inch as far as I know
+      pageMargins: [ 30, 35, 30, 35 ],
       content: diary,
       footer: function(currentPage, pageCount) {
-        return { text: currentPage.toString(), alignment: (currentPage % 2) ? 'left' : 'right', margin: [ 20, 10, 20, 30 ] };
+        return { text: currentPage.toString(), alignment: (currentPage % 2) ? 'right' : 'left', margin: [ 20, 10, 20, 30 ] };
       },
       defaultStyle: {
           font: 'baskerville'
       },
       styles: {
-        headingTable: {
-          alignment: 'right'
-        },
         heading: {
           fontSize: 18,
           bold: true,
+          alignment: 'center'
         },
         subheading: {
           fontSize: 13,
           italics: true,
+          alignment: 'center'
         },
         entry: {
           fontSize: 12,
