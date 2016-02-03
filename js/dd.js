@@ -200,8 +200,8 @@ function updateFontSizes(){
 
 function DiaryDash( jQuery ) {
     // Code to run when the document is ready.
-    setBackground();
-
+    //setBackground;
+    $("body").css("background-image", "url(https://source.unsplash.com/category/nature/"+window.screen.width+"x"+window.screen.height+")");
     updateFontSizes()
     $(window).resize(updateFontSizes);
 
