@@ -6,56 +6,23 @@
 	<meta charset="utf-8">
 	<title>diarydash</title>
 	<meta name="description" content="diary">
-	<meta name="author" content="">
+	<meta name="author" content="Philip Poloczek">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<!-- Font -->
 	<link href="http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
 
-	<!-- CSS -->
-	<link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-	<link type="text/css" rel="stylesheet" href="css/diarydash.css">
-
 	<!-- favicon -->
 	<link rel="shortcut icon" href="favicon.ico?v=3">
 </head>
 
 <body>
-	<main>
-		<div class="container">
-			<div class="row">
-				<div id="page" class="left col s12 m12 l8 offset-l2 z-depth-3">
-						<div class="title col s12">
-							<div class="heading">
-								<span id="day" class="heading-content"></span>
-							</div>
-							<div class="subheading">
-								<span id="date"></span>
-							</div>
-						</div>
 
-						<div class="content col s12">
-							<textarea autofocus spellcheck=false rows="20" id="entry"></textarea>
-						</div>
-				</div>
-				<div id="footer" class="col s12 m12 l8 offset-l2 center">
-						<a id="DownloadButton" data-position="top" data-delay="100" data-tooltip="Download">Download</a> diary with
-						<span id="PageNumber" class="left-align"></span> entries
-				</div>
-			</div>
-		</div>
-	</main>
+	<div id="app">
 
-	<!-- JavaScript -->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script type="text/javascript" src="js/moment.min.js"></script>
-	<script type="text/javascript" src="js/autosize-lite.js"></script>
-	<script type="text/javascript" src="js/pdfmake.min.js"></script>
-	<script type="text/javascript" src="js/vfs_fonts.js"></script>
-
-	<script type="text/javascript" src="js/dd.js"></script>
+	</div>
+	<script type="text/javascript" src="dist/js/diarydash.bundle.js"></script>
 
 	<!-- Google Analytics -->
 	<script>
