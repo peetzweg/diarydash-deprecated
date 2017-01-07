@@ -3,10 +3,11 @@ import React, {
 	PropTypes,
 } from 'react';
 
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {Editor, EditorState, RichUtils, ContentState} from 'draft-js';
 import {getDefaultKeyBinding, KeyBindingUtil} from 'draft-js';
 const {hasCommandModifier} = KeyBindingUtil;
 import Immutable from 'immutable';
+import DBActions from "../db/DBActions";
 
 const blockRenderMap = Immutable.Map({
 	'unstyled': {
@@ -26,12 +27,22 @@ class DDEditor extends Component {
 	}
 
 	componentDidMount() {
+		DBActions.on("ready", ()=>DBActions.restoreTodaysEntry());
+		DBActions.on("restored", ()=> {
+			const entry = DBActions.getTodaysEntry();
+			if (entry) {
+				console.log('restoring entry', entry);
+				this.setState({
+					editorState: EditorState.moveSelectionToEnd(EditorState.createWithContent(ContentState.createFromText(entry.text+" "))),
+				});
+				this.focus();
+			}
+		});
 		this.focus();
 	}
 
 
 	customBindings(e) {
-		console.log('e.keyCode', e.keyCode);
 		if (e.keyCode === 83 /* `S` key */ && hasCommandModifier(e)) {
 			return 'save';
 		}
@@ -45,13 +56,12 @@ class DDEditor extends Component {
 		console.log('command', command);
 		if (command === 'log') {
 			this.logState();
+			console.log(this.state.editorState.getCurrentContent().getPlainText());
+			return 'handled';
+		} else if (command === 'save') {
+			DBActions.save(this.state.editorState);
 			return 'handled';
 		}
-		// const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
-		// if (newState) {
-		// 	this.onChange(newState);
-		// 	return 'handled';
-		// }
 		return 'not-handled';
 	}
 
