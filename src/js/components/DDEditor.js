@@ -6,6 +6,13 @@ import React, {
 import {Editor, EditorState, RichUtils} from 'draft-js';
 import {getDefaultKeyBinding, KeyBindingUtil} from 'draft-js';
 const {hasCommandModifier} = KeyBindingUtil;
+import Immutable from 'immutable';
+
+const blockRenderMap = Immutable.Map({
+	'unstyled': {
+		element: 'p',
+	}
+});
 
 class DDEditor extends Component {
 
@@ -63,6 +70,7 @@ class DDEditor extends Component {
 					handleKeyCommand={this.handleKeyCommand}
 					onChange={this.onChange}
 					keyBindingFn={this.customBindings}
+					blockRenderMap={blockRenderMap}
 					ref="editor"
 				/>
 			</div>

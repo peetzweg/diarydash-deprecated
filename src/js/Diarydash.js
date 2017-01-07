@@ -18,10 +18,7 @@ class Diarydash extends Component {
 			fontFamily: 'Libre Baskerville, serif',
 			color: "#424242",
 			textRendering: 'optimizeLegibility',
-			fontSize: "24px", // Keep your line length between 45 and 75 characters (66 is ideal)
 		};
-
-
 		return (
 			<div style={style}>
 				<Diary/>
