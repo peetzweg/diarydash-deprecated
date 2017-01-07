@@ -15,11 +15,12 @@ class Title extends Component {
 				alignItems: "flex-start",
 				fontWeight: 700,
 				paddingBottom: this.context.fontSize * 1.2 + "px",
+				paddingLeft: "0.5em",
 				fontFamily: "Playfair Display, serif",
 				// fontFamily: 'Fira Sans, sans-serif',
 				borderBottomStyle: "solid",
 				borderBottomWidth: "1px",
-				borderBottomColor: "#424242",
+				borderBottomColor: "#eeeeee",
 			},
 			date: {
 				// color:'white',
