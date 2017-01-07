@@ -12,25 +12,38 @@ class Title extends Component {
 		const styles = {
 			container: {
 				display: "flex",
+				alignItems: "flex-start",
 				fontWeight: 700,
-				fontSize: "1.5em",
-				lineHeight: "1.10",
-				paddingBottom: "1em",
+				paddingBottom: this.context.fontSize * 1.2 + "px",
 				fontFamily: "Playfair Display, serif",
+				// fontFamily: 'Fira Sans, sans-serif',
 				borderBottomStyle: "solid",
 				borderBottomWidth: "1px",
 				borderBottomColor: "#424242",
 			},
 			date: {
-				fontSize: "2em",
-				marginRight: "0.2em",
+				// color:'white',
+				// backgroundColor:"#424242",
+				fontSize: "3.5em",
+				lineHeight: "0.4",
+				marginRight: "0.1em",
 			},
-			details: {}
+			details: {
+				fontSize: "1.5em",
+				lineHeight: "0.9",
+				mozFontFeatureSettings: "c2sc, smcp",
+				msFontFeatureSettings: "c2sc, smcp",
+				webkitFontFeatureSettings: "c2sc, smcp",
+				fontFeatureSettings: "c2sc, smcp",
+				letterSpacing: "0.05em",
+			}
 		};
 		return (
 			<div style={styles.container}>
-				<div style={styles.date}>{date.format("Do")}</div>
-				<div>{date.format("dddd")}<br/>{date.format("MMMM, YYYY")}</div>
+				<div style={styles.date}>{date.format("DD")}</div>
+				<div
+					style={styles.details}>{date.format("ddd").toUpperCase()}<br/>{date.format("MMM").toUpperCase()}
+				</div>
 			</div>
 		);
 	}
@@ -43,4 +56,7 @@ Title.defaultProps = {
 	date: moment(),
 };
 
+Title.contextTypes = {
+	fontSize: React.PropTypes.number
+};
 export default Title;
