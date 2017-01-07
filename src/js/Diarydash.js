@@ -15,7 +15,6 @@ class Diarydash extends Component {
 
 	render() {
 		const style = {
-			fontFamily: 'Libre Baskerville, serif',
 			color: "#424242",
 			textRendering: 'optimizeLegibility',
 		};

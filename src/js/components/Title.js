@@ -1,9 +1,9 @@
 import React, {
 	Component,
 	PropTypes,
-} from 'react';
+} from "react";
 
-import moment from 'moment';
+import moment from "moment";
 
 class Title extends Component {
 	render() {
@@ -11,18 +11,26 @@ class Title extends Component {
 
 		const styles = {
 			container: {
+				display: "flex",
 				fontWeight: 700,
 				fontSize: "1.5em",
 				lineHeight: "1.10",
 				paddingBottom: "1em",
+				fontFamily: "Playfair Display, serif",
+				borderBottomStyle: "solid",
+				borderBottomWidth: "1px",
+				borderBottomColor: "#424242",
 			},
-			day: {},
+			date: {
+				fontSize: "2em",
+				marginRight: "0.2em",
+			},
 			details: {}
 		};
 		return (
 			<div style={styles.container}>
-				<div>{date.format('dddd')},</div>
-				<div>{date.format('MMMM Do, YYYY')}</div>
+				<div style={styles.date}>{date.format("Do")}</div>
+				<div>{date.format("dddd")}<br/>{date.format("MMMM, YYYY")}</div>
 			</div>
 		);
 	}

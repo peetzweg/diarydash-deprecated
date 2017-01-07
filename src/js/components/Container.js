@@ -17,7 +17,7 @@ class Container extends Component {
 
 	render() {
 		// Keep your line length between 45 and 75 characters (66 is ideal)
-		const fontSize = Math.ceil((this.state.dimensions.width / 66) * 1.6);
+		const fontSize = Math.ceil((this.state.dimensions.width / 66) * 1.95);
 		console.log('fontSize', fontSize);
 		const style = {
 			fontSize: fontSize + "px",
@@ -25,7 +25,6 @@ class Container extends Component {
 			margin: "0.5em",
 			maxWidth: "960px",
 		};
-
 		return (
 			<Measure
 				onMeasure={(dimensions) => {
