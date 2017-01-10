@@ -13,7 +13,7 @@ class DBActions extends EventEmitter {
 		this.todaysEntry = null;
 
 		const openRequest = indexedDB.open("diarydash", 2);
-		openRequest.onupgradeneeded = function (e) {
+		openRequest.onupgradeneeded = e => {
 			console.log("running onupgradeneeded");
 			this.db = e.target.result;
 
@@ -45,17 +45,17 @@ class DBActions extends EventEmitter {
 		const entryStore = this.db.transaction("entry", "readwrite").objectStore("entry");
 
 		const requestGet = entryStore.get(dateKey);
-		requestGet.onsuccess = ()=>{
+		requestGet.onsuccess = ()=> {
 			const requestPut = entryStore.put(entry);
-			requestPut.onsuccess = ()=>{
+			requestPut.onsuccess = ()=> {
 				console.log("UPDATED");
 				this.emit("saved")
 			};
-			requestPut.onError = ()=>{
+			requestPut.onError = ()=> {
 				console.log("Error while updating...");
 			};
 		};
-		requestGet.onerror=()=>{
+		requestGet.onerror = ()=> {
 			const requestAdd = entryStore.add(entry);
 			requestAdd.onsuccess = ()=> {
 				console.log("SAVED");

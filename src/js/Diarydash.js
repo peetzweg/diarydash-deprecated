@@ -4,7 +4,7 @@ import React, {
 	PropTypes,
 } from 'react';
 
-import Diary from './pages/Diary'
+import Diary from './pages/Diary';
 
 class Diarydash extends Component {
 
