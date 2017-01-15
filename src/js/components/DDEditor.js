@@ -42,26 +42,38 @@ class DDEditor extends Component {
 
 
 	customBindings(e) {
+		// console.log('e.keyCode', e.keyCode);
 		if (e.keyCode === 83 /* `S` key */ && hasCommandModifier(e)) {
 			return 'save';
 		}
 		if (e.keyCode === 68 /* `D` key */ && hasCommandModifier(e)) {
 			return 'log';
 		}
+		// if (e.keyCode === 32) {// Space
+		// 	return 'save-space';
+		// }
 		return getDefaultKeyBinding(e);
 	}
 
 	handleKeyCommand(command) {
 		console.log('command', command);
-		if (command === 'log') {
-			this.logState();
-			console.log(this.state.editorState.getCurrentContent().getPlainText());
-			return 'handled';
-		} else if (command === 'save') {
-			DBActions.save(this.state.editorState);
-			return 'handled';
+		switch (command) {
+			case "log":
+				this.logState();
+				console.log(this.state.editorState.getCurrentContent().getPlainText());
+				return 'handled';
+				break;
+			case "save":
+				DBActions.save(this.state.editorState);
+				return 'handled';
+				break;
+			case "split-block":
+				DBActions.save(this.state.editorState);
+				return 'not-handled';
+				break;
+			default:
+				return 'not-handled';
 		}
-		return 'not-handled';
 	}
 
 	render() {
