@@ -27,17 +27,16 @@ class DDEditor extends Component {
 	}
 
 	componentDidMount() {
-		DBActions.on("ready", ()=>DBActions.restoreTodaysEntry());
-		DBActions.on("restored", ()=> {
-			const entry = DBActions.getTodaysEntry();
+		DBActions.on("restore", entry=> {
 			if (entry) {
 				console.log('restoring entry', entry);
 				this.setState({
-					editorState: EditorState.moveSelectionToEnd(EditorState.createWithContent(ContentState.createFromText(entry.text+" "))),
+					editorState: EditorState.moveSelectionToEnd(EditorState.createWithContent(ContentState.createFromText(entry.text))),
 				});
 				this.focus();
 			}
 		});
+		DBActions.restoreTodaysEntry();
 		this.focus();
 	}
 

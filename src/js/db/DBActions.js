@@ -7,7 +7,6 @@ class DBActions extends EventEmitter {
 
 		this.save = this.save.bind(this);
 		this.restoreTodaysEntry = this.restoreTodaysEntry.bind(this);
-		this.getTodaysEntry = this.getTodaysEntry.bind(this);
 
 		this.db = null;
 		this.todaysEntry = null;
@@ -109,12 +108,11 @@ class DBActions extends EventEmitter {
 	}
 
 	restoreTodaysEntry() {
+		console.log("Restoring today's entry...");
 		const entryStore = this.db.transaction("entry").objectStore("entry");
 		const request = entryStore.get(moment().startOf("day").toISOString());
 		request.onsuccess = event => {
-			console.log("event", event);
-			this.todaysEntry = request.result;
-			this.emit("restored")
+			this.emit("restore", request.result)
 		};
 		request.onerror = event => {
 			console.log("Error:", event.target.error);
@@ -122,15 +120,11 @@ class DBActions extends EventEmitter {
 		}
 	}
 
-	getTodaysEntry() {
-		return this.todaysEntry;
-	}
-
-	getAmountOfEntries(){
+	getAmountOfEntries() {
 		const entryStore = this.db.transaction("entry").objectStore("entry");
 		var countRequest = entryStore.count();
 		countRequest.onsuccess = e => {
-			this.emit("amount",e.target.result)
+			this.emit("amount", e.target.result)
 		}
 	}
 }
