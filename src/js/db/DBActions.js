@@ -18,7 +18,7 @@ class DBActions extends EventEmitter {
 			this.db = e.target.result;
 
 			if (!this.db.objectStoreNames.contains("entry")) {
-				console.log("Creating "entry" object store...");
+				console.log("Creating 'entry' object store...");
 				this.db.createObjectStore("entry", {keyPath: "date"});
 			}
 		};
