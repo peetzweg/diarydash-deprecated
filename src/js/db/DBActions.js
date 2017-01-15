@@ -12,7 +12,7 @@ class DBActions extends EventEmitter {
 		this.db = null;
 		this.todaysEntry = null;
 
-		const openRequest = indexedDB.open("diarydash", 1);
+		const openRequest = indexedDB.open("diarydash", 9);
 		openRequest.onupgradeneeded = e => {
 			console.log("Upgrade needed...");
 			this.db = e.target.result;
@@ -26,14 +26,12 @@ class DBActions extends EventEmitter {
 		openRequest.onsuccess = e => {
 			console.log("Database successfully arranged");
 			this.db = e.target.result;
-
-			this.transferLocalStorageToIndexDB();
 			this.emit("ready");
 		};
 
 		openRequest.onerror = e => {
 			console.log("Error while setting up the database");
-			console.dir(e);
+			console.log('Error', event.target.error);
 		};
 	}
 
@@ -119,7 +117,7 @@ class DBActions extends EventEmitter {
 			this.emit("restored")
 		};
 		request.onerror = event => {
-			console.log("event", event);
+			console.log("Error:", event.target.error);
 			this.emit("error")
 		}
 	}
