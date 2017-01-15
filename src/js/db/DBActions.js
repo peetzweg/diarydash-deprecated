@@ -125,6 +125,14 @@ class DBActions extends EventEmitter {
 	getTodaysEntry() {
 		return this.todaysEntry;
 	}
+
+	getAmountOfEntries(){
+		const entryStore = this.db.transaction("entry").objectStore("entry");
+		var countRequest = entryStore.count();
+		countRequest.onsuccess = e => {
+			this.emit("amount",e.target.result)
+		}
+	}
 }
 
 export default new DBActions();

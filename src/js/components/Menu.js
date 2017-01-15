@@ -3,21 +3,26 @@ import React, {
 	PropTypes,
 } from 'react';
 
+import DBActions from "../db/DBActions";
+
 class Menu extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			open: false,
 			lastScroll: 0,
+			amount:"n/a",
 			isChrome: navigator.userAgent.toLowerCase().includes("chrome"),
 		};
 	}
 
 	componentDidMount() {
+		DBActions.on("amount",amount=>this.setState({amount:amount}));
+		DBActions.getAmountOfEntries();
 		window.scrollBy(0, 1);
-		if(this.state.isChrome){
+		if (this.state.isChrome) {
 			window.addEventListener('scroll', this.toggle);
-		}else{
+		} else {
 			window.addEventListener('scroll', this.toggleSafari);
 		}
 	}
@@ -53,10 +58,9 @@ class Menu extends Component {
 	render() {
 		const {open} = this.state;
 		const style = {
-			position: "relative",
-			margin: 0,
-			padding: 0,
-			top: 0,
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center",
 			width: "100%",
 			color: "#ffffff",
 			backgroundColor: "#424242",
@@ -65,7 +69,13 @@ class Menu extends Component {
 			transition: open ? "height 0.15s ease-out" : "height 0.15s cubic-bezier(0.42, 0.0, 1.0, 1.0)",
 		};
 		return (
-			<div style={style}><span>MENU</span></div>
+			<div style={style}>
+				{!open ? null :
+					<div>
+						{this.state.amount}
+					</div>
+				}
+			</div>
 		);
 	}
 }
