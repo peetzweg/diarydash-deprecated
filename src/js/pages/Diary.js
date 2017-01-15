@@ -25,7 +25,7 @@ class Diary extends Component {
 
 		return (
 			<div style={style}>
-				<Menu/>
+				{/*<Menu/>*/}
 				<Container>
 					<Title date={moment()}/>
 					<DDEditor/>
