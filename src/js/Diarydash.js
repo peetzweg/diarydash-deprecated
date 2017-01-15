@@ -1,12 +1,28 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import React, {
 	Component,
 	PropTypes,
-} from 'react';
+} from "react";
 
-import Diary from './pages/Diary';
+import Diary from "./pages/Diary";
+import DBActions from "./db/DBActions";
 
 class Diarydash extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			ready: false,
+		}
+	}
+
+	componentWillMount() {
+		DBActions.once("ready", ()=> {
+			this.setState({ready: true});
+		});
+
+	}
+
 
 	componentDidMount() {
 		// document.body.style.backgroundColor = "black";
@@ -14,14 +30,16 @@ class Diarydash extends Component {
 	}
 
 	render() {
+		const {ready} = this.state;
 		const style = {
 			color: "#424242",
-			textRendering: 'optimizeLegibility',
-			fontFamily: 'Fira Sans, sans-serif',
+			textRendering: "optimizeLegibility",
+			fontFamily: "Fira Sans, sans-serif",
 		};
 		return (
 			<div style={style}>
-				<Diary/>
+				{ready ? <Diary/> : null}
+
 			</div>
 		);
 	}
