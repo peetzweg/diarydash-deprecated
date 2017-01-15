@@ -31,6 +31,7 @@
   "dependencies": {
     "draft-js": "^0.9.1",
     "moment": "^2.17.1",
+    "normalize.css": "^5.0.0",
     "react-measure": "^1.4.5"
   }
 }
