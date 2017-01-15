@@ -79,9 +79,9 @@ class DDEditor extends Component {
 	render() {
 		const style = {
 			lineHeight: "1.5", // The standard line height of 1.5 is considered ideal for setting body text
-			// borderLeftStyle: "solid",
-			// borderLeftWidth: "1px",
-			// borderLeftColor: "#eeeeee",
+			borderLeftStyle: "solid",
+			borderLeftWidth: "1px",
+			borderLeftColor: "#eeeeee",
 			paddingLeft: "0.5em",
 		};
 		return (
