@@ -8,7 +8,7 @@ class Container extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fontSize:12
+			fontSize: 12
 		};
 	}
 
@@ -31,7 +31,7 @@ class Container extends Component {
           			this.setState({fontSize:Math.ceil((dimensions.width / 66) * 1.95)})
         		}}
 			>
-				<div style={style}>
+				<div style={Object.assign({},this.props.style, style)}>
 					{this.props.children}
 				</div>
 			</Measure>
@@ -40,7 +40,9 @@ class Container extends Component {
 }
 
 Container.propTypes = {};
-Container.defaultProps = {};
+Container.defaultProps = {
+	style:{}
+};
 Container.childContextTypes = {
 	fontSize: React.PropTypes.number,
 };
