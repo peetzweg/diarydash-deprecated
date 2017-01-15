@@ -32,9 +32,9 @@ class Title extends Component {
 			details: {
 				fontSize: "1.5em",
 				lineHeight: "0.9",
-				mozFontFeatureSettings: "c2sc, smcp",
+				MozFontFeatureSettings: "c2sc, smcp",
 				msFontFeatureSettings: "c2sc, smcp",
-				webkitFontFeatureSettings: "c2sc, smcp",
+				WebkitFontFeatureSettings: "c2sc, smcp",
 				fontFeatureSettings: "c2sc, smcp",
 				letterSpacing: "0.05em",
 			}
