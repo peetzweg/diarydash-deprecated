@@ -1,5 +1,5 @@
 module.exports = {
-    devtool: 'eval-source-map',
+	devtool: 'eval-source-map',
     entry: './src/js/diarydash.js',
     output: {
         path: './dist/js',

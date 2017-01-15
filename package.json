@@ -3,7 +3,10 @@
   "version": "2.0.0",
   "description": "Write your diary in your browser. Everyday you are presented with a blank page. Your entries are saved locally using HTML5 local storage. All entries can be accessed in a single markdown file using the controls at the bottom of the page.",
   "main": "src/js/index.js",
-  "scripts": {},
+  "scripts": {
+  	"watch": "webpack --watch --progress -d",
+  	"production": "webpack --progress --config ./webpack.config.production.js -p"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pczek/diarydash.git"
